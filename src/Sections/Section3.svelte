@@ -29,11 +29,11 @@
 
   const colors = ["#000000", "#393918", "#65652a", "#898920", "#c4c410", "#ffff33"]
   const colors2 = [
-    { pct: 10, color: "#393918" },
-    { pct: 20, color: "#65652a" },
-    { pct: 30, color: "#898920" },
-    { pct: 40, color: "#c4c410"},
-    { pct: 50, color: "#ffff33"}
+    { pct: 8.3, color: "#393918" },
+    { pct: 13.1, color: "#65652a" },
+    { pct: 17.8, color: "#898920" },
+    { pct: 22.6, color: "#c4c410"},
+    { pct: 27.3, color: "#ffff33"}
   ]
   let x, y;
   let date, pct;
@@ -46,8 +46,10 @@
       .on("mouseover", function(e, d) {
         rects.attr("opacity", 0.3)
         d3.select(this).attr("opacity", 1).attr("stroke-width", 3).attr("stroke", "white")
-        x = e.layerX + 5;
-        y = e.layerY + 5;
+        console.log(e.target.getBoundingClientRect())
+        x = e.layerX + 5
+        y = e.layerY + 5
+        console.log(e)
         date = d3.select(this).attr("data-date")
         pct = d3.select(this).attr("data-value")
         tooltip.style("top", `${y}px`).style("left", `${x}px`)
