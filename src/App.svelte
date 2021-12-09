@@ -13,7 +13,7 @@
   export let moonAccidentsD = [];
   export let mercuryDelaysD = [];
   export let mercuryRetrogradeD = [];
-  // export let mercuryAccidentsD = [];
+  export let mercuryAccidentsD = [];
 
   
   let promise = getData();
@@ -21,6 +21,7 @@
     moonAccidentsD = await d3.csv("data/moon_accidents.csv")
     mercuryDelaysD = await d3.csv("data/mercury_delays.csv")
     mercuryRetrogradeD = await d3.csv("data/retrograde.csv")
+    mercuryAccidentsD = await d3.csv("data/mercury_accidents.csv")
   }
 
 </script>
@@ -30,9 +31,9 @@
   <Intro />
   {#await promise then data} 
     <!-- <Section1 data={moonAccidentsD} /> -->
-    <Section2 data={mercuryDelaysD}/>
+    <!-- <Section2 data={mercuryDelaysD}/> -->
     <!-- <Section3 data={mercuryRetrogradeD}/> -->
-    <Section4 />
+    <Section4 data={mercuryAccidentsD} />
   {/await}
   <Conclusion />
   <Methodology />
