@@ -19,7 +19,7 @@ import { onMount } from 'svelte';
 
   const width = window.innerWidth * 0.6;
   const height = window.innerHeight;
-  const outerRadius = width > height ? height * 0.6 - 150 : width * 0.6 - 150 
+  const outerRadius = width > height ? height * 0.6 - 250 : width * 0.6 - 150 
   const margin = {
     t: 10, r: 25, b: 25, l: 25
   }
@@ -89,12 +89,34 @@ import { onMount } from 'svelte';
       name:  "Waning Crescent",
     },
   ]
+  const fatalities = [
+    {
+      n: 1,
+      f: 1
+    },
+    {
+      n: 2,
+      f: 50,
+    },
+    {
+      n: 3,
+      f: 100,
+    },
+    {
+      n: 4,
+      f: 150,
+    },
+    {
+      n: 5,
+      f: 200,
+    }
+  ]
 
   $: {
 
   }
   let imgD = [...Array(8).keys()];
-	let imgSize = 75;
+	let imgSize = 65;
 </script>
 
 <section>
@@ -142,8 +164,35 @@ import { onMount } from 'svelte';
 <Scroller top="{0}" bottom="{1}" bind:index bind:offset bind:progress>
   <div class="scroller background" slot="background">
     <svg {width} {height}>
+      <text
+        transform="translate({margin.l}, 50)"
+        class="chart-title"
+        fill="white">
+        Moon phases and fatal accidents
+      </text>
+      <g class="legend" transform="translate({margin.l}, 100)">
+        <text
+          fill="gray"
+        >
+        Fatalities
+        </text>
+        {#each fatalities as {n, f}}
+          <circle
+            transform="translate({n * 50 - 20}, 20)"
+            r="{rScale(f)}"
+            fill="yellow"
+            fill-opacity="0.8"
+          ></circle>
+          <text
+            transform="translate({n * 50 - 20}, 50)"
+            fill="gray"
+            text-anchor="middle"
+            class="fatalities"
+          >{f}</text>
+        {/each}
+      </g>
         <g id="radial-scatter">
-          <g transform="translate({width / 2}, {height / 2})">
+          <g transform="translate({width / 2}, {height / 2 + 50})">
             <g class="x-axis">
               {#each xAxisD as d}
                 <line
@@ -192,6 +241,7 @@ import { onMount } from 'svelte';
                   transform="translate(0, {yScale(parseTime(d)) + 2})"
                   text-anchor="middle"
                   fill="white"
+                  fill-opacity="{index === 0 ? 1 : 0.5}"
                 >{getYear(parseTime(d))}
                 </text>
               {/each}
@@ -208,7 +258,7 @@ import { onMount } from 'svelte';
               {/each}
             </g>
           </g>
-          <g class="imgs" transform="translate({width / 2 - imgSize / 2}, {height / 2 - imgSize / 2})">
+          <g class="imgs" transform="translate({width / 2 - imgSize / 2}, {height / 2 - imgSize / 2 + 50})">
             {#each imgD as d}
               <g>
                 <image
@@ -301,6 +351,15 @@ import { onMount } from 'svelte';
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .chart-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .fatalities {
+    font-size: 0.8rem;
   }
 
   .x-axis-label text {
