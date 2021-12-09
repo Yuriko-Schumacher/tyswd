@@ -125,43 +125,6 @@
 
 </script>
 
-<section>
-  <article>
-    <h2>
-      Mercury retrograde x flight delays
-    </h2>
-    <ul>
-      <li>
-        How Mercury gets in retrograde
-        <ul>
-          <li>
-            Data viz: calendar?
-          </li>
-        </ul>
-      </li>
-      <li>
-        General explanation and distribution of flight delays
-        <ul>
-          <li>
-            Explain 15-minute period
-          </li>
-          <li>
-            2020 was very unusual
-          </li>
-        </ul>
-      </li>
-      <li>
-        Data viz: density plot (interactive)
-        <ul>
-          <li>
-            Slightly delays per day when Mercury is in retrograde
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </article>
-</section>
-
 <Scroller top="{0}" bottom="{1}" threshold="{0.5}" bind:index bind:offset bind:progress>
   <div class="scroller background" slot="background">
     <svg {width} {height}>
@@ -270,20 +233,17 @@
     <section data-section-id="1" class="step">
       <div class="step-text">
         <p>
-          Section 1...
+          For two thirds of the year, while Mercury is not in retrograde, 3.5% to 4.0% of flights are delayed on a daily basis. 
         </p>
         <p>
-          Explain something here... Overlapped density plot
+          The spike in delays related to the COVID-19 pandemic in late March 2020 did not occur during retrograde, but the bump around 5.25% is not linked to any specific time period. 
         </p>
       </div>
     </section>
     <section data-section-id="2" class="step">
       <div class="step-text">
         <p>
-          Section 2...
-        </p>
-        <p>
-          Explain something here... Top: delay % in normal days / Bottom: delay % when mercury is in retrograde
+          During Mercury retrograde, however, the two peaks shift slightly to approximately 3.7% and 4.25%. Until the 5% mark, the percentage of flights delayed during retrograde remains higher than that during the normal period — suggesting there may be an undetectable increase in delays.
         </p>
       </div>
     </section>
@@ -292,10 +252,13 @@
 
 <article>
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque alias aspernatur animi tempora exercitationem atque. Eaque cupiditate laborum mollitia magnam, libero at architecto? Expedita optio a laboriosam ea neque iusto.
+    Sriwijaya Air Flight 182 did not occur during the earliest retrograde period this year, which lasted from Jan. 30 to Feb. 20. It was, however, delayed due to bad weather.
   </p>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita ipsam similique sapiente ipsum quia cumque, praesentium exercitationem nemo magni velit, recusandae ea explicabo possimus blanditiis totam, alias quod quidem.
+    Mercury can enter its retrograde cycle during one month or star sign and exit in another. Within the 37 times in the past 11 years, retrograde began 20 times in the six colder months of the year – October through March – and 17 times during the warmer half from April through September. 
+  </p>
+  <p>
+    According to the <a href="https://www.faa.gov/newsroom/inclement-weather-0?newsId=23074" target="_blank">Federal Aviation Administration</a>, inclement weather creates potentially hazardous conditions for flights. In an average year, bad weather accounts for nearly 70% of flight delays. 
   </p>
 </article>
 

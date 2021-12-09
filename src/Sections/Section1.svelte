@@ -285,6 +285,57 @@ import { onMount } from 'svelte';
   </div>
 </Scroller>
 
+<article>
+  <p>
+    While the incidence of flight crashes has steadily decreased throughout the decades, Campagna reasoned the new moon “can be a time of more accidents because people are more tired, they’re more sad. They have less resources to function well, or emotionally they just might be feeling a little bit darker and depleted. That can contribute to how people are present.” 
+  </p>
+  <p>
+    “Almost every emergency, unsafe situation or serious malfunction is addressed through a step-by-step sequence,” said Patrick Smith, a first officer at Delta Airlines and current pilot of Boeing 757 and 767s. 
+  </p>
+  <p>
+    Smith, author of “The Cockpit Confidential” and an extensive airline blog, mentioned “the worlds of private aviation and commercial airline operations are vastly different realms. Safety-wise, they differ across the board, so much so that it’s difficult to compare them.” 
+  </p>
+  <h2>
+    A corporate pilot’s input
+  </h2>
+  <p>
+    In an interview with a current corporate pilot who decided to remain anonymous due to security reasons, he explained “standardization with the flight crews is one of the most important things regardless of the size of the plane.”
+  </p>
+  <p>
+    “When you fly with someone you don’t know, you don’t know if they’re equipped to handle an emergency situation the same way as someone you’ve worked with before,” said the pilot with nearly 50 years of flying experience. You’d hope they follow the same steps as you do.” 
+  </p>
+  <p>
+    For him, the biggest safety concern is not the size of the plane nor the weather. It’s automation and the growing dependency pilots have on technology to safely guide the plane.
+  </p>
+  <p>
+    “In the old days, we flew and we had what was called ‘stick and rudder’ skills,” explained the pilot, who used to fly the largely discontinued Boeing 727s. “Planes crash a lot of the time because of errors in the cockpit. People don’t understand the systems as good as they should and this goes back, you know. It’s not just happening in the year 2021, this goes back a long time – 40, 50 years. People crash because they’re not paying attention and today, the pilots are button pushers and computer managers.” 
+  </p>
+  <p>
+    His rule of thumb is to “aviate, navigate, and then communicate. Fly the airplane, keep it going where you're supposed to be going. And then call the controller and tell them you have a problem.”
+  </p>
+  <p>
+    Astrologers believe a separate heavenly body orbiting Earth is in charge of communication and technology.
+  </p>
+  <p>
+    Campagna uses the transcentury “American Ephemeris,” a guidebook that tracks navigation of celestial bodies for a hundred years starting in 1950, to accompany clients’ individual readings. But for astrologers like her, there is much more to stargazing than zodiacs and horoscope charts – their study is rooted in reading and deciphering tables of mathematical calculations of planetary trajectories. 
+  </p>
+  <p>
+    For three weeks roughly every three months, mercury’s orbit appears to position itself in an opposite direction to that of surrounding planets. As the planet closest to the sun and also the smallest, Mercury embodies the worlds of communication, transportation and technology in astrological circles.
+  </p>
+  <p>
+    Rosenfield elaborated that Mercury’s placement in one’s birth chart can influence how one communicates with others and with themselves. 
+  </p>
+  <p>
+    Mercury is believed to have “dominion over a huge, huge aspect of our lives, because communication has really exploded over the last 40 years with the advent of the Internet and advanced technology,” added Campagna. 
+  </p>
+  <p>
+    For two thirds of the year, Mercury’s direct motion provides the baseline expectation for awareness and analysis. During the other third, however, the planet appears to move backward and meet with the sun, signifying the state in which communication is altered.
+  </p>
+  <p>
+    The small planet entered apparent retrograde motion 37 times from the beginning of 2010 through 2021, amounting to 840 days total. When an equally sized population of delayed flight arrivals lasting over 15 minutes were sampled to pair with non-retrograde dates, the results of Mercury’s potential impacts were somewhat unclear.
+  </p>
+</article>
+
 <style>
   section.step {
     max-width: 600px;

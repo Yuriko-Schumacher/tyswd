@@ -115,6 +115,34 @@
   {/each}
 </div>
 
+<article>
+  <p>
+    As shown in this heat map, there are pockets of weeks within the past 10 years where retrograde has not transpired as frequently, including January and September. However, flights are delayed on a daily basis including during these dips – sometimes as a result of poor weather conditions. 
+  </p>
+  <p>
+    Flight delays are hectic for the traveler because of issues of communication. Tatiana Fontalvo, an artist interested in astrology, talked about how travels can often be delayed while mercury is in retrograde. She reflected that just by “driving your car or taking a plane, we are communicating and moving to other places. Therefore, [in moments of] retrograde, there is a necessity to be patient, slower and more aware because the energy can be chaotic and unpredictable.” 
+  </p>
+</article>
+
+<h1>
+  MERCURY RETROGRADE AUDIO 
+</h1>
+
+<article>
+  <p>
+    “Mercury is the planet of communication, transportation and shipping. And when it sleeps, you start to see the lack of support that the planet usually gives you,” said astrology icon Susan Miller. “You have to be so careful with communication.” 
+  </p>
+  <p>
+    Her website and app of the same name, <a href="http://astrologyzone.com" target="_blank">Astrologyzone.com</a>, has garnered over 17 million hits amid the growing obsession with astrological phenomena and its ability to give semi-personalized insights. To the non-astrologically inclined, it is seen as merely a scapegoat for minor life inconveniences. 
+  </p>
+  <p>
+    Mercury retrograde, according to Miller, is “the one thing that affects everybody the same way.” Although it can affect certain astrological signs differently depending on when retrograde is happening, the effects of retrograde can be felt by anyone. She <a href="https://www.astrologyzone.com/everything-you-need-to-know-about-mercury-retrograde/" target="_blank">warns</a> against signing contracts, making big life decisions, even traveling for business and booking tickets during Mercury retrograde periods. 
+  </p>
+  <p>
+    Her advice – “slow down and be more deliberate.”
+  </p>
+</article>
+
 <style>
   .container {
     border: 3px solid gray;

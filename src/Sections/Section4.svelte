@@ -133,26 +133,23 @@
 
   <div class="scroller foreground" slot="foreground">
     <section class="step">
+      <h2>
+        On the importance of threes
+      </h2>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id voluptates error qui placeat non. Corrupti, iste omnis ex soluta dicta magni expedita! Nulla quod excepturi quo placeat optio nam odio.
+        Mercury represents the “Third House” in astrology – the house of communication – and moves through three stages of retrograde for three weeks every three months. If statistically significant, it would be uncanny to see an increase in the number of crashes with fatalities of exactly three people. Most smaller planes, though, can barely seat up to four people. 
       </p>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure amet quia perspiciatis quo, at nobis earum officia architecto harum repudiandae expedita sapiente fuga eligendi aperiam numquam delectus unde vero molestias!
+        “Three is a really big number with mercury,” added Campagna, who also mentioned the significance of “the third road. Mercury is the psychopomp that guides souls who have recently departed through the underworld, so they can make that transition.” 
       </p>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo a consequatur doloremque et quos sunt animi similique porro sed voluptates eius, rerum quas fugiat eaque fuga tempora, repudiandae enim qui!
+        The expanding field of astrology remains largely debated – however, in a world filled with uncertainties and fears of the future, many look for answers or explanations to personal life events. Astrology prevails as one of many outlets.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sapiente cum, repellendus aspernatur obcaecati fuga earum praesentium incidunt temporibus natus veniam soluta ex necessitatibus modi, exercitationem distinctio vitae nobis tenetur.
+        While there may be strange correlations between aviation and astrology, intersections of celestial realms with topics as grave as flight crashes remain largely unstudied. Pilot Smith, who has spent over 30 years flying, commented: 
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sapiente cum, repellendus aspernatur obcaecati fuga earum praesentium incidunt temporibus natus veniam soluta ex necessitatibus modi, exercitationem distinctio vitae nobis tenetur.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sapiente cum, repellendus aspernatur obcaecati fuga earum praesentium incidunt temporibus natus veniam soluta ex necessitatibus modi, exercitationem distinctio vitae nobis tenetur.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sapiente cum, repellendus aspernatur obcaecati fuga earum praesentium incidunt temporibus natus veniam soluta ex necessitatibus modi, exercitationem distinctio vitae nobis tenetur.
+        “Everyone has their own personal superstitions, to some degree, but overall I can’t think of a less superstitious place than a jetliner cockpit.” 
       </p>
     </section>
   </div>
