@@ -170,7 +170,7 @@ import { onMount } from 'svelte';
         fill="white">
         Moon phases and fatal accidents
       </text>
-      <g class="legend" transform="translate({margin.l}, 100)">
+      <g class="legend" transform="translate({margin.l}, 100)" opacity="{index === 2 ? 1 : 0}">
         <text
           fill="gray"
         >
@@ -181,7 +181,7 @@ import { onMount } from 'svelte';
             transform="translate({n * 50 - 20}, 20)"
             r="{rScale(f)}"
             fill="yellow"
-            fill-opacity="0.8"
+            fill-opacity="{aScale(f)}"
           ></circle>
           <text
             transform="translate({n * 50 - 20}, 50)"
@@ -281,30 +281,36 @@ import { onMount } from 'svelte';
     <section data-section-id="1" class="step">
       <div class="step-text">
         <p>
-          Section 1...
+          Explanation about moon phases.
         </p>
         <p>
-          Some explanation... Moon phases x fatal accidents radial scatter plot. Circle sizes = fatalities. Big accidents happened when...
+          It changes from New Moon -> ... -> Full Moon -> ... New Moon. It takes 29.5 days from new moon to new moon.
+        </p>
+        <p>
+          Outer radius => closer to 2021
         </p>
       </div>
     </section>
     <section data-section-id="2" class="step">
       <div class="step-text">
         <p>
-          Section 2...
+          The total number of accidents
         </p>
         <p>
-          Some more explanation... Look for some data point to highlight? 9/11 attack?
+          More days during new moon and full moon => not surprisingly more accidents.
+        </p>
+        <p>
+          Also more accidents closer to the center ... as the technology increased, the number of accidents decreased.
         </p>
       </div>
     </section>
     <section data-section-id="3" class="step">
       <div class="step-text">
         <p>
-          Section 3...
+          How about big accidents?
         </p>
         <p>
-          Some explanation... Make it interactive? Or we can just remove this section.
+          Most big accidents happened ...
         </p>
       </div>
     </section>
