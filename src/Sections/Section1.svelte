@@ -14,7 +14,6 @@
     d.pct_fixed = +d.pct_fixed;
     d.fatalities = +d.fatalities;
   })
-  console.log(data)
 
   const width = window.innerWidth * 0.6;
   const height = window.innerHeight;
