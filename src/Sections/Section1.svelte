@@ -17,7 +17,7 @@ import { onMount } from 'svelte';
     d.fatalities = +d.fatalities;
   })
 
-  const width = window.innerWidth * 0.6;
+  const width = window.innerWidth * 0.7;
   const height = window.innerHeight;
   const outerRadius = width > height ? height * 0.6 - 250 : width * 0.6 - 150 
   const margin = {
@@ -74,7 +74,7 @@ import { onMount } from 'svelte';
     },
     {
       pct: 100,
-      name:  "Fill Moon",
+      name:  "Full Moon",
     },
     {
       pct: 125,
@@ -161,7 +161,7 @@ import { onMount } from 'svelte';
   </div>
 </div>
 
-<Scroller top="{0}" bottom="{1}" bind:index bind:offset bind:progress>
+<Scroller top="{0}" bottom="{1}" threshold="{0.5}" bind:index bind:offset bind:progress>
   <div class="scroller background" slot="background">
     <svg {width} {height}>
       <text
@@ -326,7 +326,6 @@ import { onMount } from 'svelte';
 
   section.step {
     max-width: 600px;
-    width: 50%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -339,20 +338,20 @@ import { onMount } from 'svelte';
     background: rgba(255, 255, 255, 0.1);
   }
 
-  .scroller {
-    width: 50%;
+  .background {
+    width: 70vw;
   }
 
   .foreground {
-    /* background: rgba(255, 192, 203, 0.1); */
+    width: 30vw;
     margin: 0 0 0 auto;
   }
 
   section.step {
-    width: 40vw;
+    width: 30vw;
     min-height: 80vh;
-    margin: 0 auto;
-    padding: 5rem;
+    margin: 0 auto 0 0;
+    padding: 0 5rem 0 0;
     display: flex;
     flex-direction: column;
     justify-content: center;

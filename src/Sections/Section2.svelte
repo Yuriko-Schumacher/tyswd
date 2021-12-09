@@ -20,7 +20,7 @@
   console.log(retTrueD)
   console.log(retFalseD)
 
-  const width = window.innerWidth / 2;
+  const width = window.innerWidth * 0.5;
   const height = window.innerHeight;
   const margin = {
     t: 10, r: 25, b: 25, l: 25
@@ -91,6 +91,9 @@
     }
   );
   let newPaths; 
+  
+  const legendSvgs = ["normal", "ret"]
+  const texts = ["Normal times", "Retrograde period"]
 
   $: {
     if (index === 0) {
@@ -107,7 +110,7 @@
         newPaths = density.map((d) => ({
           id: d.retrograde === "TRUE" ? 0 : 1,
           strokeWidth: 1,
-          opacity: d.retrograde === "TRUE" ? 1 : 0.5,
+          opacity: 1,
           y: d.retrograde === "TRUE" ? height / 3 : 0,
           r: d.retrograde === "TRUE" ? colors.yellow.r : colors.white,
           g: d.retrograde === "TRUE" ? colors.yellow.g : colors.white,
@@ -156,11 +159,64 @@
   </article>
 </section>
 
-<Scroller top="{0}" bottom="{1}" bind:index bind:offset bind:progress>
+<Scroller top="{0}" bottom="{1}" threshold="{0.5}" bind:index bind:offset bind:progress>
   <div class="scroller background" slot="background">
     <svg {width} {height}>
+      <text
+        transform="translate({margin.l}, 50)"
+        class="chart-title"
+        fill="white">
+        Mercury retrograde and flight delays
+      </text>
+      <g class="legend">
+        {#each legendSvgs as d}
+          <image
+            transform="translate({d === "normal" ? margin.l : margin.l + 200}, 75)"
+            width="50"
+            opacity="{index === 0 ? 1 : 0}"
+            href="./image/density-{d}.svg"></image>
+        {/each}
+      </g>
+      <g class="x-axis"></g>
+      <g class="y-axis"></g>
+      <g class="x-axis-label">
+        <text class="axis-label"
+            x={width - margin. r}
+            y={index === 0 ? height / 3 + height / 5 : height - margin.b - height / 10}
+            text-anchor="end"
+        >
+            More delays per day →
+        </text>
+        <text class="axis-label"
+            x={margin.l + 50}
+            y={index === 0 ? height / 3 + height / 5 : height - margin.b - height / 10}
+            text-anchor="start"
+        >
+            ← Fewer delays per day
+        </text>
+      </g>
+      <g class="y-axis-label">
+        <text class="axis-label"
+            transform={`translate(30, ${index === 0 ? height / 3 : height / 2}) rotate(-90)`}
+            text-anchor="middle">
+            Dencity
+        </text>
+      </g>
+      <g class="x-axis-grid"></g>
+      <g class="y-axis-grid"></g>
       <g transform="translate({margin.l}, {margin.t})">
         <g id="density-plot">
+          {#each texts as text}
+            <g class="chart-subtitle">
+              <text
+                transform="translate({index === 0 ? text === "Normal times" ? 55 : 255 : 50},
+                                    {index === 0 ? 85 : text === "Normal times" ? 200 : height / 3 + 200})"
+                fill="white"
+              >
+                {text}
+              </text>
+            </g>
+          {/each}
           {#each $paths as { id, strokeWidth, opacity, y, r, g, b}}
             <path
               style="{move(y)}; opacity: {opacity}"
@@ -198,16 +254,6 @@
         </p>
       </div>
     </section>
-    <section data-section-id="3" class="step">
-      <div class="step-text">
-        <p>
-          Section 3...
-        </p>
-        <p>
-          Make it interactive? Or we can just remove this section.
-        </p>
-      </div>
-    </section>
   </div>
 </Scroller>
 
@@ -221,21 +267,16 @@
 </article>
 
 <style>
-  .scroller {
-    width: 50%;
-  }
-
   div.step-text {
     padding: 2rem 3rem;
     background: rgba(255, 255, 255, 0.1);
   }
 
-  /* .background {
-    background: rgba(255, 255, 255, 0.1);
-  } */
+  .scroller {
+    width: 50%;
+  }  
 
   .foreground {
-    /* background: rgba(255, 192, 203, 0.1); */
     margin: 0 0 0 auto;
   }
 
@@ -248,5 +289,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .chart-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .axis-label {
+    fill: gray;
   }
 </style>
