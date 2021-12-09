@@ -206,9 +206,9 @@
       <g class="x-axis-label">
         <text
             x={width / 2 + margin.l}
-            y={index === 0 ? height / 3 + height / 5 : height - margin.b - height / 10}
+            y={index === 0 ? height / 3 + height / 5 + 30 : height - margin.b - height / 10 + 30}
             text-anchor="middle"
-            fill="white"
+            fill="gray"
         >
           % of delayed flights, adjusted
         </text>
@@ -228,10 +228,11 @@
         </text>
       </g>
       <g class="y-axis-label">
-        <text class="axis-label"
+        <text
             transform={`translate(30, ${index === 0 ? height / 3 : height / 2}) rotate(-90)`}
-            text-anchor="middle">
-            Dencity
+            text-anchor="middle"
+            fill="gray">
+            Density
         </text>
       </g>
       <g class="x-axis-grid"></g>
