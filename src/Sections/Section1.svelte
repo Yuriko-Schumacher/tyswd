@@ -2,6 +2,7 @@
   import * as d3 from 'd3';
   import Scroller from "@sveltejs/svelte-scroller";
   import { spring } from 'svelte/motion';
+import { onMount } from 'svelte';
 
   export let data;
   let index, offset, progress;
@@ -157,6 +158,7 @@
             {#each imgD as d}
               <g>
                 <image
+                  class="moon-img"
                   width={imgSize}
                   height={imgSize}
                   transform="translate(
