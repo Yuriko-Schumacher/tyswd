@@ -23,7 +23,7 @@
   const width = window.innerWidth * 0.5;
   const height = window.innerHeight;
   const margin = {
-    t: 10, r: 25, b: 25, l: 25
+    t: 10, r: 50, b: 25, l: 25
   }
 
   const colors = {
@@ -38,6 +38,9 @@
 
   let xScale = d3.scaleLinear().domain([1,7]).range([margin.l, width - margin.r])
   let yScale = d3.scaleLinear().domain([0,0.8]).range([height / 2 - margin.b, margin.t])
+
+  const vlineNumbers = [...Array(14).keys()].map(d => (d / 2 + 1));
+  console.log(vlineNumbers)
 
   // Function to compute density
   const kernelDensityEstimator = (kernel, X) => {
@@ -177,9 +180,38 @@
             href="./image/density-{d}.svg"></image>
         {/each}
       </g>
-      <g class="x-axis"></g>
+      <g class="x-axis">
+        {#each vlineNumbers as n}
+          <line
+            transform="translate({margin.l}, {margin.t})"
+            x1="{xScale(n)}"
+            y1="{index === 0 ? yScale(0) : yScale(0) + height / 3}"
+            x2="{xScale(n)}"
+            y2="{150}"
+            stroke-width="0.5"
+            stroke="white"
+            stroke-opacity="0.5"
+          ></line> 
+          <text
+            class="x-axis-ticks"
+            x="{xScale(n) + margin.l}"
+            y="{index === 0 ? yScale(0) + 30 : yScale(0) + 30 + height / 3}"
+            fill="white"
+            text-anchor="middle"
+          >{d3.format(",.1f")(n)}
+          </text>
+        {/each}
+      </g>
       <g class="y-axis"></g>
       <g class="x-axis-label">
+        <text
+            x={width / 2 + margin.l}
+            y={index === 0 ? height / 3 + height / 5 : height - margin.b - height / 10}
+            text-anchor="middle"
+            fill="white"
+        >
+          % of delayed flights, adjusted
+        </text>
         <text class="axis-label"
             x={width - margin. r}
             y={index === 0 ? height / 3 + height / 5 : height - margin.b - height / 10}
@@ -298,5 +330,10 @@
 
   .axis-label {
     fill: gray;
+    font-size: 0.8rem;
+  }
+
+  .x-axis-ticks {
+    font-size: 0.8rem;
   }
 </style>
