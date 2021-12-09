@@ -4,7 +4,7 @@
 
 <div>
   <h1>
-    Do moon phases and mercury retrograde really affect our flights?
+    The Astrological Effect on Aviation 
   </h1>
   <p>
     By Danica Jefferies, Yuriko Schumacher, and Sofia Perez

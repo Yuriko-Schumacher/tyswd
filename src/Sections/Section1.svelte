@@ -119,48 +119,6 @@ import { onMount } from 'svelte';
 	let imgSize = 65;
 </script>
 
-<section>
-  <article>
-    <h2>
-      Moon phases x accidents
-    </h2>
-    <ul>
-      <li>
-        How the moon phases
-      </li>
-      <li>
-        Data viz: radial scatter plot (interactive)
-      </li>
-      <li>
-        Table: Top 30 deadliest accidents and moon phases
-      </li>
-    </ul>
-  </article>
-</section>
-
-<div class="flourish-embed">
-  <iframe
-    src='https://flo.uri.sh/visualisation/8040745/embed'
-    title='Interactive or visual content'
-    class='flourish-embed-iframe'
-    frameborder='0'
-    scrolling='no'
-    style='width:100%;height:500px;'
-    sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
-  </iframe>
-  <div style='width:100%!;margin-top:4px!important;text-align:right!important;'>
-    <a
-      class='flourish-credit'
-      href='https://public.flourish.studio/visualisation/8040745/?utm_source=embed&utm_campaign=visualisation/8040745'
-      target='_top'
-      style='text-decoration:none!important'>
-        <img 
-          alt='Made with Flourish'
-          src='https://public.flourish.studio/resources/made_with_flourish.svg'
-          style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a>
-  </div>
-</div>
-
 <Scroller top="{0}" bottom="{1}" threshold="{0.5}" bind:index bind:offset bind:progress>
   <div class="scroller background" slot="background">
     <svg {width} {height}>
@@ -170,7 +128,7 @@ import { onMount } from 'svelte';
         fill="white">
         Moon phases and fatal accidents
       </text>
-      <g class="legend" transform="translate({margin.l}, 100)" opacity="{index === 2 ? 1 : 0}">
+      <g class="legend" transform="translate({margin.l}, 100)" opacity="{index >= 2 ? 1 : 0}">
         <text
           fill="gray"
         >
@@ -281,36 +239,46 @@ import { onMount } from 'svelte';
     <section data-section-id="1" class="step">
       <div class="step-text">
         <p>
-          Explanation about moon phases.
+          The moon itself does not generate light, as it is lit up by the sun. As the moon orbits Earth and revolves counterclockwise, the portion of illuminated moon visible from Earth changes daily. 
         </p>
         <p>
-          It changes from New Moon -> ... -> Full Moon -> ... New Moon. It takes 29.5 days from new moon to new moon.
+          It takes 29.5 days, roughly one month, for the moon to expand in illumination from new to full (waxing) and back to new (waning) again. 
         </p>
         <p>
-          Outer radius => closer to 2021
+          In this plot, the outer radius represents the decades closer to 2021. 
         </p>
       </div>
     </section>
     <section data-section-id="2" class="step">
       <div class="step-text">
         <p>
-          The total number of accidents
+          Between November 1966 and 2021, there were 24,714 private and commercial flight crashes within the United States and its territories, according to an NTSB [aviation accident dataset/database/query]. 
         </p>
         <p>
-          More days during new moon and full moon => not surprisingly more accidents.
+          Although the moon spends roughly the same amount of time in each phase, there were notably more crashes closer to the New and Full moon, when the moon’s illumination creeps toward 0 and 100% respectively. 
         </p>
         <p>
-          Also more accidents closer to the center ... as the technology increased, the number of accidents decreased.
+          Luckily, airplane safety features have been enhanced over the last 50 years. Fewer crashes are seen happening after the 2000s, partially due to technological developments. 
         </p>
       </div>
     </section>
     <section data-section-id="3" class="step">
       <div class="step-text">
         <p>
-          How about big accidents?
+          The most lethal crashes, four with more than 200 fatalities, occurred between the ‘70s and early 2000s. 
         </p>
         <p>
-          Most big accidents happened ...
+          Three of these four occurred between the new and earliest signs of waxing crescent, when the moon grows from 0% to 25% illumination.
+        </p>
+      </div>
+    </section>
+    <section data-section-id="4" class="step">
+      <div class="step-text">
+        <p>
+          The other occurred in close proximity to the new moon, but during the final transition from waning crescent back to its origin.
+        </p>
+        <p>
+          The night sky is darker during these time periods in comparison to the light provided by the full moon – but most crashes occurred during the daytime. 
         </p>
       </div>
     </section>
@@ -318,12 +286,6 @@ import { onMount } from 'svelte';
 </Scroller>
 
 <style>
-  .flourish-embed {
-    margin: 0 auto;
-    width: 80%;
-    max-width: 1000px;
-  }
-
   section.step {
     max-width: 600px;
     min-height: 100vh;

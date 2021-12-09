@@ -30,9 +30,9 @@
   <Title />
   <Intro />
   {#await promise then data} 
-    <!-- <Section1 data={moonAccidentsD} /> -->
-    <!-- <Section2 data={mercuryDelaysD}/> -->
-    <!-- <Section3 data={mercuryRetrogradeD}/> -->
+    <Section1 data={moonAccidentsD} />
+    <Section2 data={mercuryDelaysD}/>
+    <Section3 data={mercuryRetrogradeD}/>
     <Section4 data={mercuryAccidentsD} />
   {/await}
   <Conclusion />
