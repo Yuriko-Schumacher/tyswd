@@ -30,7 +30,7 @@
     class='flourish-embed-iframe'
     frameborder='0'
     scrolling='no'
-    style='width:100%;height:500px;'
+    style='width:100%;height:800px;'
     sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
   </iframe>
   <div style='width:100%!;margin-top:4px!important;text-align:right!important;'>
@@ -63,11 +63,11 @@
     “You can intuitively think about the new moon as a dark period, when we don’t have as much energy,” said Boston-based astrologer Laura Campagna, who has been conducting tarot readings professionally since 2016. “At the new moon, it’s a time of emptiness and pause and stillness, like shedding and letting go. So before the new moon, you’re emptying out and there’s a lot less energy.”
   </p>
 </article>
-
-<h1>
-  MOON AUDIO
-</h1>
-
+<div class="video">
+  <video controls width="100%" src="./audio/moon.mp4">
+    <track kind="captions">
+  </video>
+</div>
 <article>
   <p>
     The moon is known to affect the ebb and flow of tides, as the closest celestial body to Earth has a strong gravitational pull. But looking to the moon and stars for answers has been around much longer than the buzz it has created in pop culture. 

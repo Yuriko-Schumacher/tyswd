@@ -7,7 +7,6 @@
   import Section2 from './Sections/Section2.svelte'
   import Section3 from './Sections/Section3.svelte'
   import Section4 from './Sections/Section4.svelte'
-  import Conclusion from './Sections/Conclusion.svelte'
   import Methodology from './Sections/Methodology.svelte'
 
   export let moonAccidentsD = [];
@@ -35,7 +34,6 @@
     <Section3 data={mercuryRetrogradeD}/>
     <Section4 data={mercuryAccidentsD} />
   {/await}
-  <Conclusion />
   <Methodology />
 </main>
 
