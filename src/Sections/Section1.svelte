@@ -162,7 +162,7 @@
                   transform="translate(
                     {yScale(parseTime("2030-12-31")) * Math.cos(xScale(d * 25))},
                     {-yScale(parseTime("2030-12-31")) * Math.sin(xScale(d * 25))})"
-                  href="./image/moon-phases/{d + 1}.jpg"
+                  href="./image/moon-phases/{d + 1}.jpeg"
                 ></image>
               </g>
             {/each}
