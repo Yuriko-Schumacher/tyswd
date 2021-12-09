@@ -209,9 +209,17 @@ import { onMount } from 'svelte';
                 <circle
                   style="{move(yScale(d.date) * Math.cos(xScale(d.pct_fixed)), yScale(d.date) * Math.sin(xScale(d.pct_fixed)))}"
                   r="{index <= 1 ? 1 : rScale(d.fatalities)}"
-                  stroke-opacity="{index == 0 ? 0 : index == 1 ? 0.5 : aScale(d.fatalities)}"
+                  stroke-opacity="{index == 0 ? 0
+                  : index == 1 || index == 2 ? 0.1
+                  : index == 3 ? d.fatalitles > 200 && d.pct_fixed > 25 ? 1 : 0.1
+                  : index == 4 ? d.fatalities > 200 && d.pct_fixed < 25 ? 1 : 0.1
+                  : index == 5 ? d.pct_fixed > 150 || d.pct_fixed < 25 ? aScale(d.fatalities) : 0.1 : 0.1}"
                   fill="yellow"
-                  fill-opacity="{index == 0 ? 0 : index == 1 ? 0.1 : aScale(d.fatalities)}"
+                  fill-opacity="{index == 0 ? 0
+                    : index == 1 || index == 2 ? 0.1
+                    : index == 3 ? d.fatalitles > 200 && d.pct_fixed > 25 ? 1 : 0.1
+                    : index == 4 ? d.fatalities > 200 && d.pct_fixed < 25 ? 1 : 0.1
+                    : index == 5 ? d.pct_fixed > 150 || d.pct_fixed < 25 ? aScale(d.fatalities) : 0.1 : 0.1}"
                 />
               {/each}
             </g>
@@ -267,16 +275,24 @@ import { onMount } from 'svelte';
         <p>
           The most lethal crashes, four with more than 200 fatalities, occurred between the ‘70s and early 2000s. 
         </p>
-        <p>
-          Three of these four occurred between the new and earliest signs of waxing crescent, when the moon grows from 0% to 25% illumination.
-        </p>
       </div>
     </section>
     <section data-section-id="4" class="step">
       <div class="step-text">
         <p>
+          Three of these four occurred between the new and earliest signs of waxing crescent, when the moon grows from 0% to 25% illumination.
+        </p>
+      </div>
+    </section>
+    <section data-section-id="5" class="step">
+      <div class="step-text">
+        <p>
           The other occurred in close proximity to the new moon, but during the final transition from waning crescent back to its origin.
         </p>
+      </div>
+    </section>
+    <section data-section-id="6" class="step">
+      <div class="step-text">
         <p>
           The night sky is darker during these time periods in comparison to the light provided by the full moon – but most crashes occurred during the daytime. 
         </p>
