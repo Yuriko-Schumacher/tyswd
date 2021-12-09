@@ -8,6 +8,7 @@ import { onMount } from 'svelte';
   let index, offset, progress;
 
   const parseTime = d3.timeParse("%Y-%m-%d");
+  const getYear = d3.timeFormat("%Y")
   data.map(d => {
     d.date = parseTime(d.date);
     d.year = +d.year;
@@ -43,52 +44,55 @@ import { onMount } from 'svelte';
     .domain(d3.extent(data, (d) => d.fatalities))
     .range([0.1, 0.8]);
 
-  console.log(rScale(1))
-
-
   const move = (cx, cy) => `transform: translate(${cx}px, ${cy}px)`;
-  const colors = {
-    yellow : {
-      r: 255,
-      g: 255,
-      b: 0
-    },
-    white : 238,
-    black : 34
-  }
-  let dots = spring(
-    data.map((d) => ({
-      cx: yScale(d.date) * Math.cos(xScale(d.pct_fixed)),
-      cy: -yScale(d.date) * Math.sin(xScale(d.pct_fixed)),
-      cr: rScale(d.fatalities),
-      strokeWidth: 0.4,
-      opacity: aScale(d.fatalities),
-      r: colors.yellow.r,
-      g: colors.yellow.g,
-      b: colors.yellow.b,
-    })),
-    {
-      stiffness: 0.1,
-      damping: 0.9
-    }
-  );
-  let newDots;
 
-  // $: {
-  //   if (index === 0) {
-  //     newDots = data.map((d) => ({
-  //       cx: yScale(d.date) * Math.cos(xScale(d.pct_fixed)),
-  //       cy: -yScale(d.date) * Math.sin(xScale(d.pct_fixed)),
-  //       cr: 1,
-  //       strokeWidth: 0.4,
-  //       opacity: aScale(d.fatalities),
-  //       r: colors.yellow.r,
-  //       g: colors.yellow.g,
-  //       b: colors.yellow.b,
-  //     }))
-  //   }
-  //   dots.set(newDots)
-  // }
+  const xAxisD = [...Array(4).keys()];
+  const yAxisD = [
+			"1970-01-01",
+			"1980-01-01",
+			"1990-01-01",
+			"2000-01-01",
+			"2010-01-01",
+			"2020-01-01",
+		];
+  const phases = [
+    {
+      pct: 0,
+      name:  "New Moon",
+    },
+    {
+      pct: 25,
+      name: "Waxing Crescent",
+    },
+    {
+      pct: 50,
+      name:  "First Quarter",
+    },
+    {
+      pct: 75,
+      name:  "Waxing Gibbous",
+    },
+    {
+      pct: 100,
+      name:  "Fill Moon",
+    },
+    {
+      pct: 125,
+      name:  "Waning Gibbous",
+    },
+    {
+      pct: 150,
+      name:  "Third Quarter",
+    },
+    {
+      pct: 175,
+      name:  "Waning Crescent",
+    },
+  ]
+
+  $: {
+
+  }
   let imgD = [...Array(8).keys()];
 	let imgSize = 75;
 </script>
@@ -140,16 +144,66 @@ import { onMount } from 'svelte';
     <svg {width} {height}>
         <g id="radial-scatter">
           <g transform="translate({width / 2}, {height / 2})">
-            <g class="dots">
-              {#each $dots as { strokeWidth, opacity, cx, cy, cr, r, g, b}}
+            <g class="x-axis">
+              {#each xAxisD as d}
+                <line
+                  x1="{-outerRadius / 1.4}"
+                  y1="{-outerRadius / 1.4}"
+                  x2="{outerRadius / 1.4}"
+                  y2="{outerRadius / 1.4}"
+                  transform="rotate({d * 45})"
+                  stroke="white"
+                  stroke-width="0.5"
+                  stroke-opacity="0.3"
+                ></line>
+              {/each}
+            </g>
+            <g class="y-axis">
+              {#each yAxisD as d}
                 <circle
-                  style="{move(cx, cy)}"
-                  r="{cr}"
-                  stroke="#cccccc"
-                  stroke-width="{strokeWidth}"
-                  stroke-opacity="{opacity}"
-                  fill="rgb({r}, {g}, {b})"
-                  fill-opacity="{opacity}"
+                  cx="0"
+                  cy="0"
+                  r="{yScale(parseTime(d))}"
+                  fill-opacity="0"
+                  stroke="white"
+                  stroke-width="0.5"
+                  stroke-opacity="0.3"
+                ></circle>
+              {/each}
+            </g>
+            <g class="x-axis-label">
+              {#each phases as {pct, name}, i}
+                <text
+                  transform="translate(
+                    {yScale(parseTime("2030-12-31")) * Math.cos(xScale(i * 25))},
+                    {i <= 4 
+                      ? yScale(parseTime("2030-12-31")) * Math.sin(xScale(i * 25)) - imgSize
+                      : yScale(parseTime("2030-12-31")) * Math.sin(xScale(i * 25)) + imgSize})"
+                  text-anchor="middle"
+                  fill="white"
+                >
+                  {name}
+                </text>
+              {/each}
+            </g>
+            <g class="y-axis-label">
+              {#each yAxisD as d}
+                <text
+                  transform="translate(0, {yScale(parseTime(d)) + 2})"
+                  text-anchor="middle"
+                  fill="white"
+                >{getYear(parseTime(d))}
+                </text>
+              {/each}
+            </g>
+            <g class="dots">
+              {#each data as d}
+                <circle
+                  style="{move(yScale(d.date) * Math.cos(xScale(d.pct_fixed)), yScale(d.date) * Math.sin(xScale(d.pct_fixed)))}"
+                  r="{index <= 1 ? 1 : rScale(d.fatalities)}"
+                  stroke-opacity="{index == 0 ? 0 : index == 1 ? 0.5 : aScale(d.fatalities)}"
+                  fill="yellow"
+                  fill-opacity="{index == 0 ? 0 : index == 1 ? 0.1 : aScale(d.fatalities)}"
                 />
               {/each}
             </g>
@@ -163,7 +217,7 @@ import { onMount } from 'svelte';
                   height={imgSize}
                   transform="translate(
                     {yScale(parseTime("2030-12-31")) * Math.cos(xScale(d * 25))},
-                    {-yScale(parseTime("2030-12-31")) * Math.sin(xScale(d * 25))})"
+                    {yScale(parseTime("2030-12-31")) * Math.sin(xScale(d * 25))})"
                   href="./image/moon-phases/{d + 1}.jpeg"
                 ></image>
               </g>
@@ -247,5 +301,13 @@ import { onMount } from 'svelte';
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .x-axis-label text {
+    font-size: 0.8rem;
+  }
+
+  .y-axis-label text {
+    font-size: 0.8rem;
   }
 </style>
