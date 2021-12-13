@@ -38,7 +38,7 @@
   const rScale = d3
     .scaleSqrt()
     .domain(d3.extent(data, (d) => d.fatalities))
-    .range([1, 15]);
+    .range([1, outerRadius / 25]);
 
   const aScale = d3
     .scaleLinear()
@@ -121,7 +121,7 @@
   }
 
   let imgD = [...Array(8).keys()];
-	let imgSize = 65;
+	let imgSize = outerRadius / 6;
 
   afterUpdate(() => {
     // ----- TOOLTIP -----
