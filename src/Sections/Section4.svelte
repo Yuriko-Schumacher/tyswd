@@ -135,7 +135,7 @@
   </div>
 </div>
 
-<article>
+<article class="outro">
   <p>
     “Three is a really big number with mercury,” added Campagna, who also mentioned the significance of “the third road. Mercury is the psychopomp that guides souls who have recently departed through the underworld, so they can make that transition.” 
   </p>
@@ -177,7 +177,7 @@
     font-size: 0.8rem;
   }
 
-  article {
+  .outro {
     margin-bottom: 10rem;
   }
 </style>
