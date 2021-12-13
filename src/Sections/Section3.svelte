@@ -6,7 +6,7 @@
   export let data;
 
   const parseTime = d3.timeParse("%Y-%m-%d");
-  const formatTime = d3.timeFormat("%B %e");
+  const formatTime = d3.timeFormat("%b %e");
 
   data.map(d => {
     d.date = parseTime(d.date);
@@ -47,10 +47,8 @@
       .on("mouseover", function(e, d) {
         rects.attr("opacity", 0.3)
         d3.select(this).attr("opacity", 1).attr("stroke-width", 3).attr("stroke", "white")
-        console.log(e.target.getBoundingClientRect())
         x = e.layerX + 5
-        y = e.layerY + 5
-        console.log(e)
+        y = e.clientY + 5
         date = d3.select(this).attr("data-date")
         pct = d3.select(this).attr("data-value")
         tooltip.style("top", `${y}px`).style("left", `${x}px`)
