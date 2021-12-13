@@ -126,18 +126,26 @@
   afterUpdate(() => {
     // ----- TOOLTIP -----
     const backgroundContainer = d3.select(".scroller__radial-scatter").select(".background-container")
-    backgroundContainer.style("z-index", "999").style("pointer-events", "auto")
+    backgroundContainer.style("z-index", "999")
     const circles = backgroundContainer.select(".dots").selectAll("circle")
     const tooltip = backgroundContainer.select(".tooltip")
+
+    if (index === 6) {
+      backgroundContainer.style("pointer-events", "none")
+    }
+
     if (index === 7) {
+      backgroundContainer.style("pointer-events", "auto")
       circles.on("mouseover", function(e) {
       let id = d3.select(this).attr("id");
       let thisD = data.filter(d => d.accident_num == id)[0]
+      let cx = +d3.select(this).attr("cx") + width / 2
+      let cy = +d3.select(this).attr("cy") + height / 2 + 50
       d3.select(this).attr("fill", "yellow").attr('fill-opacity', 1).attr("stroke-opacity", 1)
       tooltip
         .style("display", "block")
-        .style("top", `${e.clientY + 5}px`)
-        .style("left", `${e.clientX + 5}px`)
+        .style("top", `${cy + 5}px`)
+        .style("left", `${cx + 5}px`)
         .html(`Fatalities: <strong>${thisD.fatalities}</strong><br>
                 Moon phase: <strong>${getMoonPhase(thisD.pct_fixed)}</strong><br>
                 Moon illumination: <strong>${thisD.est_pct_illuminated}</strong>%<br>
@@ -245,7 +253,8 @@
               <g class="dots">
                 {#each data as d}
                   <circle
-                    style="{move(yScale(d.date) * Math.cos(xScale(d.pct_fixed)), yScale(d.date) * Math.sin(xScale(d.pct_fixed)))}"
+                    cx="{yScale(d.date) * Math.cos(xScale(d.pct_fixed))}"
+                    cy="{yScale(d.date) * Math.sin(xScale(d.pct_fixed))}"
                     r="{index <= 1 ? 1 : rScale(d.fatalities)}"
                     stroke-opacity="{index == 0 ? 0
                       : index == 1 ? 0.1
