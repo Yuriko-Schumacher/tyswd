@@ -21,7 +21,7 @@
   const width = window.innerWidth * 0.5;
   const height = window.innerHeight;
   const margin = {
-    t: 10, r: 50, b: 25, l: 25
+    t: 10, r: 75, b: 25, l: 50
   }
 
   const colors = {
@@ -148,7 +148,7 @@
             y1="{index === 0 ? yScale(0) : yScale(0) + height / 3}"
             x2="{xScale(n)}"
             y2="{150}"
-            stroke-width="0.5"
+            stroke-width="0.3"
             stroke="white"
             stroke-opacity="0.5"
           ></line> 

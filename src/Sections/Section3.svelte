@@ -39,9 +39,10 @@
   let date, pct;
 
   onMount(() => {
-    d3.selectAll('.heatmap').selectAll('text').attr("transform", "translate(0, 15)").style("fill", "gray")
-    const rects = d3.selectAll('.heatmap').selectAll('rect');
-    const tooltip = d3.select(".tooltip");
+    const heatmapContainer = d3.select(".heatmap-container")
+    heatmapContainer.selectAll('.heatmap').selectAll('text').attr("transform", "translate(0, 15)").style("fill", "gray")
+    const rects = heatmapContainer.selectAll('rect');
+    const tooltip = heatmapContainer.select(".tooltip");
     rects
       .on("mouseover", function(e, d) {
         rects.attr("opacity", 0.3)
@@ -91,28 +92,30 @@
       </g>  
     </svg>
   </div>
-  <div class="tooltip"></div>
-  {#each intervals as i}
-    <h4>{i.title}</h4>
-    <div class="heatmap">
-      <SvelteHeatmap
-        allowOverflow={false}
-        cellGap={5}
-        cellRadius={0}
-        colors={colors}
-        fontColor={"white"}
-        fontSize={12}
-        fontFamily={"Fira Sans"}
-        data={data}
-        dayLabelWidth={0}
-        emptyColor={'rgba(0, 0, 30, 0)'}
-        startDate={i.start}
-        endDate={i.end}
-        monthLabelHeight={25}
-        view={'yearly'}
-      />
-    </div>
-  {/each}
+  <div class="heatmap-container">
+    <div class="tooltip"></div>
+    {#each intervals as i}
+      <h4>{i.title}</h4>
+      <div class="heatmap">
+        <SvelteHeatmap
+          allowOverflow={false}
+          cellGap={5}
+          cellRadius={0}
+          colors={colors}
+          fontColor={"white"}
+          fontSize={12}
+          fontFamily={"Fira Sans"}
+          data={data}
+          dayLabelWidth={0}
+          emptyColor={'rgba(0, 0, 30, 0)'}
+          startDate={i.start}
+          endDate={i.end}
+          monthLabelHeight={25}
+          view={'yearly'}
+        />
+      </div>
+    {/each}
+  </div>
 </div>
 
 <article>
@@ -162,6 +165,7 @@
     top: 0px;
     left: 0px;
     background: rgba(255, 255, 255, 0.9);
+    border-radius: 0.1em;
     color: black;
     padding: 0.3rem 0.5rem;
     width: fit-content;

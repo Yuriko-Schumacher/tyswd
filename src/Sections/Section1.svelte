@@ -388,9 +388,6 @@
   <p>
     Smith, author of “The Cockpit Confidential” and an extensive airline blog, mentioned “the worlds of private aviation and commercial airline operations are vastly different realms. Safety-wise, they differ across the board, so much so that it’s difficult to compare them.” 
   </p>
-  <h2>
-    A corporate pilot’s input
-  </h2>
   <p>
     In an interview with a current corporate pilot who decided to remain anonymous due to security reasons, he explained “standardization with the flight crews is one of the most important things regardless of the size of the plane.”
   </p>
@@ -412,6 +409,7 @@
   <p>
     Campagna uses the transcentury “American Ephemeris,” a guidebook that tracks navigation of celestial bodies for a hundred years starting in 1950, to accompany clients’ individual readings. But for astrologers like her, there is much more to stargazing than zodiacs and horoscope charts – their study is rooted in reading and deciphering tables of mathematical calculations of planetary trajectories. 
   </p>
+  <h1>Mercury retrograde</h1>
   <p>
     For three weeks roughly every three months, mercury’s orbit appears to position itself in an opposite direction to that of surrounding planets. As the planet closest to the sun and also the smallest, Mercury embodies the worlds of communication, transportation and technology in astrological circles.
   </p>
@@ -430,6 +428,10 @@
 </article>
 
 <style>
+  h1 {
+    margin-top: 2.5em;
+  }
+
   section.step {
     max-width: 600px;
     min-height: 100vh;

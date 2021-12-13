@@ -9,15 +9,37 @@
     </h2>
     <ul>
       <li>
-        NASA
-        <ul>
-          <li>
-            Phases of the moon graphic
-          </li>
-          <li>
-            Individual phases used in table and for moon x crashes chart
-          </li>
-        </ul>
+        <a href="https://moon.nasa.gov/moon-in-motion/moon-phases/" target="_blank">NASA</a> 
+        - Photos of phases of the moon
+      </li>
+      <li>
+        <a href="https://www.timeanddate.com/moon/@4136847?month=2&year=2022" target="_blank">Timeanddate.com</a>
+        - Moon phases and illumination data
+      </li>
+      <li>
+        <a href="https://data.ntsb.gov/carol-main-public/landing-page" target="_blank">National Transportation Safety Board</a>
+        - Flight accidents data
+      </li>
+      <li>
+        <a href="https://www.transtats.bts.gov/" target="_blank">Bureau of Transportation Statistics</a>
+        - Flight delays data
+      </li>
+    </ul>
+    <h2>
+      Credits
+    </h2>
+    <ul>
+      <li>
+        Reporting and editing: Danica Jefferies and Sofia Perez
+      </li>
+      <li>
+        Data collection, analysis and visualization: Danica Jefferies and Yuriko Schumacher
+      </li>
+      <li>
+        Audio: Sofia Perez
+      </li>
+      <li>
+        Design and development: Yuriko Schumacher
       </li>
     </ul>
   </article>

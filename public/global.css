@@ -29,6 +29,14 @@ text {
 	font-family: "Fira Sans", sans-serif;
 }
 
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
 section {
 	margin: 5rem auto;
 }
