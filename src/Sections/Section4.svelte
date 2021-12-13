@@ -12,7 +12,7 @@
   data = data.filter(d => d.fatalities <= 7)
 
   const width = window.innerWidth / 2
-  const height = width
+  const height = width * 0.65
   const margin = {
     t: 100, r: 50, b: 50, l: 50
   }
@@ -161,12 +161,12 @@
   }
 
   .title {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 
   .note {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     font-size: 0.8rem;
     font-style: italic;
