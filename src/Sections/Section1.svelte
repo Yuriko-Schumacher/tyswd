@@ -319,7 +319,7 @@
       <section data-section-id="2" class="step">
         <div class="step-text">
           <p>
-            Between November 1966 and 2021, there were 24,714 private and commercial flight crashes within the United States and its territories, according to an NTSB [aviation accident dataset/database/query]. 
+            Between November 1966 and 2021, there were 24,714 private and commercial flight crashes within the United States and its territories, according to <a href="https://data.ntsb.gov/carol-main-public/landing-page" target="_blank">NTSB</a>. 
           </p>
           <p>
             Although the moon spends roughly the same amount of time in each phase, there were notably more crashes closer to the New and Full moon, when the moon’s illumination creeps toward 0 and 100% respectively. 
