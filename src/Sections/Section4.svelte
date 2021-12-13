@@ -36,8 +36,6 @@
     .padding([0.2])
 
   const hlines = [...Array(7).keys()].map(d => d * 50)
-
-  console.log(data)
 </script>
 
 <br><br><br><br><br>

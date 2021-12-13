@@ -17,8 +17,6 @@
 
   let retTrueD = data.filter(d => d.retrograde === "TRUE")
   let retFalseD = data.filter(d => d.retrograde === "FALSE")
-  console.log(retTrueD)
-  console.log(retFalseD)
 
   const width = window.innerWidth * 0.5;
   const height = window.innerHeight;
@@ -40,7 +38,6 @@
   let yScale = d3.scaleLinear().domain([0,0.8]).range([height / 2 - margin.b, margin.t])
 
   const vlineNumbers = [...Array(14).keys()].map(d => (d / 2 + 1));
-  console.log(vlineNumbers)
 
   // Function to compute density
   const kernelDensityEstimator = (kernel, X) => {
