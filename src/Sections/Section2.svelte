@@ -189,7 +189,7 @@
       </g>
       <g class="y-axis-label">
         <text
-            transform={`translate(30, ${index === 0 ? height / 3 : height / 2}) rotate(-90)`}
+            transform={`translate(80, ${index === 0 ? height / 3 : height / 2}) rotate(-90)`}
             text-anchor="middle"
             fill="gray">
             Density
