@@ -12,7 +12,7 @@
   data = data.filter(d => d.fatalities <= 7)
 
   const width = window.innerWidth / 2
-  const height = width * 0.5;
+  const height = width
   const margin = {
     t: 100, r: 50, b: 50, l: 50
   }
