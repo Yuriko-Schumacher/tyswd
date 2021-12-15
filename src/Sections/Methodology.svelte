@@ -33,7 +33,7 @@
         Reporting and editing: Danica Jefferies and Sofia Perez
       </li>
       <li>
-        Data collection, analysis and visualization: Danica Jefferies and Yuriko Schumacher
+        Data collection, analysis and visualization: Yuriko Schumacher and Danica Jefferies
       </li>
       <li>
         Audio: Sofia Perez
