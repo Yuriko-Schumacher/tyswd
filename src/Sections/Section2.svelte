@@ -353,6 +353,9 @@
     }
   }
   @media (max-width: 467px) {
+    .chart-title {
+      padding-top: 1rem;
+    }
     .legend {
       flex-direction: column;
       gap: 0.2em;

@@ -7,7 +7,7 @@
   export let width;
   export let height;
 
-  let outerRadius, imgSize, xScale, yScale, rScale, aScale;
+  let w, outerRadius, imgSize, xScale, yScale, rScale, aScale;
   let index, offset, progress;
 
   const parseTime = d3.timeParse("%Y-%m-%d");
@@ -108,16 +108,16 @@
   }
 
   $: {
-    width = width > 1000
+    w = width > 1000
       ? width * 0.66
       : width;
     outerRadius = width > 467
       ? width > height 
         ? height * 0.5 - 250
-        : width * 0.5 - 150
+        : w * 0.5 - 150
       : width > height
         ? height - 250
-        : width - 220;
+        : w - 220;
     imgSize = outerRadius / 6;
 
     xScale = d3
@@ -156,7 +156,7 @@
           circles.on("mouseover", function(e) {
           let id = d3.select(this).attr("id");
           let thisD = data.filter(d => d.accident_num == id)[0]
-          let cx = +d3.select(this).attr("cx") + width / 2
+          let cx = +d3.select(this).attr("cx") + w / 2
           let cy = +d3.select(this).attr("cy") + height / 2 + 50
           d3.select(this).attr("fill", "yellow").attr('fill-opacity', 1).attr("stroke-opacity", 1)
           tooltip
@@ -182,7 +182,7 @@
   }
 </script>
 
-{#if width !== undefined}
+{#if w !== undefined}
   <div class="scroller__radial-scatter">
     <Scroller top="{0}" bottom="{1}" threshold="{0.3}" bind:index bind:offset bind:progress>
       <div class="scroller background" slot="background">
@@ -190,7 +190,7 @@
         <div class="chart-title">
           Moon phases and fatal accidents
         </div>
-        <svg {width} {height}>
+        <svg width="{w}" height="{height}">
           <g
             class="legend"
             transform="translate({margin.l}, 25)"
@@ -216,7 +216,7 @@
             {/each}
           </g>
           <g id="radial-scatter">
-            <g transform="translate({width / 2}, {height / 2})">
+            <g transform="translate({w / 2}, {height / 2})">
               <g class="x-axis">
                 {#each xAxisD as d}
                   <line
@@ -226,7 +226,7 @@
                     y2="{outerRadius / 1.4}"
                     transform="rotate({d * 45})"
                     stroke="white"
-                    stroke-width="0.5"
+                    stroke-w="0.5"
                     stroke-opacity="0.3"
                   ></line>
                 {/each}
@@ -239,7 +239,7 @@
                     r="{yScale(parseTime(d))}"
                     fill-opacity="0"
                     stroke="white"
-                    stroke-width="0.5"
+                    stroke-w="0.5"
                     stroke-opacity="0.3"
                   ></circle>
                 {/each}
@@ -289,7 +289,7 @@
                       : index == 5 ? d.fatalities >= 200 && d.pct_fixed < 25 ? "yellow" : "white"
                       : index == 6 ? d.fatalities >= 200 && d.pct_fixed > 25 ? "yellow" : "white"
                       : index == 7 ? d.pct_fixed >= 150 || d.pct_fixed < 25 ? "yellow" : "white"
-                      : index == 8 && width <= 467
+                      : index == 8 && w <= 467
                         ? d.pct_fixed >= 150 || d.pct_fixed < 25
                         ? "yellow" : "white"
                       : "white"}"
@@ -305,7 +305,7 @@
                 {/each}
               </g>
             </g>
-            <g class="imgs" transform="translate({width / 2 - imgSize / 2}, {height / 2 - imgSize / 2})">
+            <g class="imgs" transform="translate({w / 2 - imgSize / 2}, {height / 2 - imgSize / 2})">
               {#each imgD as d}
                 <g>
                   <image

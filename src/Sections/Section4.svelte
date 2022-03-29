@@ -5,6 +5,8 @@
   export let width;
   export let height;
 
+  let w;
+
   data.map(d => {
     d.fatalities = +d.fatalities;
     d.total_accidents = +d.total_accidents;
@@ -12,8 +14,8 @@
 
   data = data.filter(d => d.fatalities <= 7)
 
-  width = width > 467 ? width / 2 > 600 ? 600 : width / 2 : width * 0.9;
-  height = width * 0.65 > 300 ? width * 0.65 : 300;
+  w = width > 467 ? width * 0.9 > 600 ? 600 : width * 0.9 : width * 0.9;
+  height = width > 467 ? w * 0.65 > 300 ? w * 0.65 : 300 : 300;
   const margin = width > 467 ? {
     t: 100, r: 50, b: 50, l: 50
   } : {
@@ -25,7 +27,7 @@
 
   const xScale = d3.scaleBand()
     .domain(group)
-    .range([margin.l, width - margin.r - margin.l])
+    .range([margin.l, w - margin.r - margin.l])
     .padding([0.2])
 
   const yScale = d3.scaleLinear()
@@ -56,7 +58,7 @@
         Number of fatalities in individual crashes are even between normal and retrograde periods, except when there are three fatalities.
       </h3>
     </div>
-    <svg width={width} height={height}>
+    <svg width={w} height={height}>
       {#if width > 467}
         <g class="legend">
           {#each subGroup as {g}, i}
@@ -122,7 +124,7 @@
       {/each}
       <g class="x-axis-label">
         <text
-            x={width / 2}
+            x={w / 2}
             y={height - margin.b + 50}
             text-anchor="end"
             fill="gray"
