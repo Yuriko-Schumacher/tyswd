@@ -5,7 +5,7 @@
   export let width;
   export let height;
 
-  let w;
+  let w, h;
 
   data.map(d => {
     d.fatalities = +d.fatalities;
@@ -15,7 +15,7 @@
   data = data.filter(d => d.fatalities <= 7)
 
   w = width > 467 ? width * 0.9 > 600 ? 600 : width * 0.9 : width * 0.9;
-  height = width > 467 ? w * 0.65 > 300 ? 300 : w * 0.65 : 300;
+  h = width > 467 ? w * 0.66 : 300;
   const margin = width > 467 ? {
     t: 100, r: 50, b: 50, l: 50
   } : {
@@ -32,7 +32,7 @@
 
   const yScale = d3.scaleLinear()
     .domain([0, 350])
-    .range([height - margin.b, margin.t])
+    .range([h - margin.b, margin.t])
 
   const xSubScale = d3.scaleBand()
     .domain(subGroup)
@@ -58,7 +58,7 @@
         Number of fatalities in individual crashes are even between normal and retrograde periods, except when there are three fatalities.
       </h3>
     </div>
-    <svg width={w} height={height}>
+    <svg width={w} height={h}>
       {#if width > 467}
         <g class="legend">
           {#each subGroup as {g}, i}
@@ -125,7 +125,7 @@
       <g class="x-axis-label">
         <text
             x={w / 2}
-            y={height - margin.b + 50}
+            y={h - margin.b + 50}
             text-anchor="end"
             fill="gray"
         >
@@ -134,7 +134,7 @@
       </g>
       <g class="y-axis-label">
         <text
-            transform={`translate(15, ${width > 467 ? height / 2 + 50 : height / 2 + 20}) rotate(-90)`}
+            transform={`translate(15, ${width > 467 ? h / 2 + 50 : h / 2 + 20}) rotate(-90)`}
             text-anchor="middle"
             fill="gray">
             Total number of accidents
@@ -146,7 +146,7 @@
             x="{xSubScale(d.retrograde)}"
             y="{yScale(d.total_accidents)}"
             width="{xSubScale.bandwidth()}"
-            height="{height - margin.b - yScale(d.total_accidents)}"
+            height="{h - margin.b - yScale(d.total_accidents)}"
             fill="{d.retrograde === "TRUE" ? "yellow" : "gray"}"
             fill-opacity="{d.retrograde === "TRUE" ? 1 : 0.8}"
           ></rect>
