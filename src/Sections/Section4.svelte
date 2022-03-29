@@ -15,7 +15,7 @@
   data = data.filter(d => d.fatalities <= 7)
 
   w = width > 467 ? width * 0.9 > 600 ? 600 : width * 0.9 : width * 0.9;
-  height = width > 467 ? w * 0.65 > 300 ? w * 0.65 : 300 : 300;
+  height = width > 467 ? w * 0.65 > 300 ? 300 : w * 0.65 : 300;
   const margin = width > 467 ? {
     t: 100, r: 50, b: 50, l: 50
   } : {
