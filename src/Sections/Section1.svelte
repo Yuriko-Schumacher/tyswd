@@ -117,7 +117,7 @@
         : w * 0.5 - 150
       : width > height
         ? height - 250
-        : w - 220;
+        : w - 230;
     imgSize = outerRadius / 6;
 
     xScale = d3
