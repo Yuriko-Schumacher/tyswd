@@ -14,6 +14,8 @@
   export let mercuryRetrogradeD = [];
   export let mercuryAccidentsD = [];
 
+  let w, h;
+
   
   let promise = getData();
   async function getData() {
@@ -25,16 +27,20 @@
 
 </script>
 
+<svelte:window bind:innerWidth="{w}" bind:innerHeight="{h}"/>
+
 <main>
-  <Title />
-  <Intro />
-  {#await promise then data} 
-    <Section1 data={moonAccidentsD} />
-    <Section2 data={mercuryDelaysD}/>
-    <Section3 data={mercuryRetrogradeD}/>
-    <Section4 data={mercuryAccidentsD} />
-  {/await}
-  <Methodology />
+  {#if w !== undefined}
+    <Title />
+    <Intro />
+    {#await promise then data} 
+      <Section1 data={moonAccidentsD} width={w} height={h}/>
+      <Section2 data={mercuryDelaysD} width={w} height={h}/>
+      <Section3 data={mercuryRetrogradeD}/>
+      <Section4 data={mercuryAccidentsD} width={w} height={h}/>
+    {/await}
+    <Methodology />
+  {/if}
 </main>
 
 <style>

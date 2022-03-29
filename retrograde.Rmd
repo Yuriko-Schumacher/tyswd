@@ -1,0 +1,54 @@
+---
+title: "tyswd"
+author: "Yuriko Schumacher"
+date: "12/8/2021"
+output: html_document
+---
+
+```{r}
+# install.packages("tidyverse")
+# install.packages("lubridate")
+
+library(tidyverse)
+library(lubridate)
+```
+
+```{r}
+ret <- read.csv("tyswd/public/data/retrograde.csv") %>% 
+  mutate(date_raw = ymd(date),
+         year = year(date_raw),
+         month = month(date_raw),
+         day = day(date_raw))
+
+ret_t <- ret %>% 
+  group_by(month, day, retrograde) %>% 
+  summarize(true = n()) %>% 
+  filter(retrograde == T) %>% 
+  ungroup()
+
+ret_f <- ret %>% 
+  group_by(month, day, retrograde) %>% 
+  summarize(false = n()) %>% 
+  filter(retrograde == F) %>% 
+  ungroup() %>% 
+  select(false)
+
+ret2 <- cbind(ret_t, ret_f) %>% 
+  select(-retrograde) %>% 
+  mutate(pct_ret = true / (false + true) * 100)
+
+ret2 %>% 
+  ggplot(aes(x = day, y = month)) + 
+  geom_tile(aes(fill = pct_ret)) +
+  theme_minimal()
+
+ret3 <- ret2 %>% 
+  mutate(date = ifelse(month >= 4,
+                       paste("2018", month, day, sep = "-"),
+                       paste("2019", month, day, sep = "-"))) %>% 
+  filter(date != "2019-2-29") %>% 
+  select(date, true, false, pct_ret)
+
+# write.csv(ret3, "tyswd/public/data/retrograde.csv", row.names = F)
+```
+

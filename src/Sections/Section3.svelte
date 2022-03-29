@@ -149,12 +149,13 @@
 <style>
   .container {
     border: 3px solid gray;
+    width: 80%;
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem 3rem 3rem;
     position: relative;
+    border-radius: 0.1rem;
   }
-
   .tooltip {
     font-family: "Fira Sans", sans-serif;
     font-size: 0.8em;
@@ -163,26 +164,27 @@
     top: 0px;
     left: 0px;
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 0.1em;
+    border-radius: 0.1rem;
     color: black;
     padding: 0.3rem 0.5rem;
     width: fit-content;
     height: fit-content;
   }
-
   h4 {
     margin: 2rem 0 0 0;
   }
-
   .legend {
     margin-top: 2rem;
   }
-
   .legend * {
     font-family: "Fira Sans", sans-serif;
   }
-
   .legend text {
     font-size: 0.8em;
+  }
+  @media (max-width: 467px) {
+    .container {
+      padding: 1rem 1rem 2rem;
+    }
   }
 </style>
